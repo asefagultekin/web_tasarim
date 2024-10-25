@@ -1,51 +1,50 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kesişen Daireler</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-            position: relative;
-        }
-        .circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            position: absolute;
-            opacity: 0.6; /* Yarı saydamlık */
-        }
-        .circle1 {
-            background-color: rgba(255, 99, 71, 1); /* Domates */
-            top: 40%;
-            left: 35%;
-        }
-        .circle2 {
-            background-color: rgba(30, 144, 255, 1); /* Dodger Blue */
-            top: 40%;
-            left: 65%;
-        }
-        .circle3 {
-            background-color: rgba(255, 215, 0, 1); /* Altın */
-            top: 25%;
-            left: 50%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overlapping Circles</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.circle1 {
+  background-color: #f4a261; /* Peach color */
+  top: 100px;
+  left: 100px;
+}
+
+.circle2 {
+  background-color: #a0c4ff; /* Purple color */
+  top: 100px;
+  left: 170px;
+}
+
+.circle3 {
+  background-color: #ffe066; /* Yellow color */
+  top: 170px;
+  left: 135px;
+}
 <body>
-
-<div class="circle circle1"></div>
-<div class="circle circle2"></div>
-<div class="circle circle3"></div>
-
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
 </body>
-</html>
+</html
 
 
 
