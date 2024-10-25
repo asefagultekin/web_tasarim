@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Programcılığı Testi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Web Programcılığı Testi</h2>
+    <form id="testForm">
+        <label for="name">Adınız:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Yaşınız:</label>
+        <input type="number" id="age" name="age" min="1" max="100" required>
+
+        <label for="gender">Cinsiyet:</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Cinsiyetinizi seçin</option>
+            <option value="male">Erkek</option>
+            <option value="female">Kadın</option>
+            <option value="other">Diğer</option>
+        </select>
+
+        <label for="skills">Programlama Dilleri:</label>
+        <input type="checkbox" id="html" name="skills" value="HTML">
+        <label for="html">HTML</label>
+        <input type="checkbox" id="css" name="skills" value="CSS">
+        <label for="css">CSS</label>
+        <input type="checkbox" id="js" name="skills" value="JavaScript">
+        <label for="js">JavaScript</label>
+
+        <label for="experience">Deneyiminiz:</label>
+        <textarea id="experience" name="experience" rows="4" required></textarea>
+
+        <label for="rating">Testi nasıl değerlendirirsiniz (1-5):</label>
+        <input type="range" id="rating" name="rating" min="1" max="5" value="3">
+
+        <label for="newsletter">Bülten almak ister misiniz?</label>
+        <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+        <label for="newsletter">Evet</label>
+
+        <button type="submit">Gönder</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('testForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Form başarıyla gönderildi!');
+    });
+</script>
+
+</body>
+</html>
 
