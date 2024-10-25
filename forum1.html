@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üyelik Formu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
 
+<h2>Üyelik Formu</h2>
+<form id="membershipForm">
+    <div class="form-group">
+        <label for="name">Ad Soyad:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Şifreyi Onayla:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+    </div>
+    <div class="form-group">
+        <label for="gender">Cinsiyet:</label>
+        <select id="gender" name="gender">
+            <option value="erkek">Erkek</option>
+            <option value="kadin">Kadın</option>
+            <option value="diger">Diğer</option>
+        </select>
+    </div>
+    <button type="submit">Üye Ol</button>
+</form>
+
+<script>
+    document.getElementById('membershipForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Form verilerini işleme kodu buraya gelecek
+        alert('Form başarıyla gönderildi!');
+    });
+</script>
+
+</body>
+</html>
