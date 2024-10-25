@@ -7,7 +7,19 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Form genişliği */
         }
         .form-group {
             margin-bottom: 15px;
@@ -27,42 +39,52 @@
             color: white;
             border: none;
             cursor: pointer;
+            width: 100%;
         }
         button:hover {
             background-color: #218838;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-<h2>Üyelik Formu</h2>
-<form id="membershipForm">
-    <div class="form-group">
-        <label for="name">Ad Soyad:</label>
-        <input type="text" id="name" name="name" required>
+<div class="form-container">
+    <h2>Üyelik Formu</h2>
+    <form id="membershipForm">
+        <div class="form-group">
+            <label for="name">Ad Soyad:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-posta:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Şifreyi Onayla:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Cinsiyet:</label>
+            <select id="gender" name="gender">
+                <option value="erkek">Erkek</option>
+                <option value="kadin">Kadın</option>
+                <option value="diger">Diğer</option>
+            </select>
+        </div>
+        <button type="submit">Üye Ol</button>
+    </form>
+    <div class="forgot-password">
+        <a href="#">Şifremi Unuttum?</a>
     </div>
-    <div class="form-group">
-        <label for="email">E-posta:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="password">Şifre:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <div class="form-group">
-        <label for="confirmPassword">Şifreyi Onayla:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
-    </div>
-    <div class="form-group">
-        <label for="gender">Cinsiyet:</label>
-        <select id="gender" name="gender">
-            <option value="erkek">Erkek</option>
-            <option value="kadin">Kadın</option>
-            <option value="diger">Diğer</option>
-        </select>
-    </div>
-    <button type="submit">Üye Ol</button>
-</form>
+</div>
 
 <script>
     document.getElementById('membershipForm').addEventListener('submit', function(event) {
