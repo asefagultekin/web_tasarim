@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvarlak Küme</title>
+    <title>Renkli Kümeler</title>
     <style>
         body {
             display: flex;
@@ -12,31 +12,29 @@
             height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
+            position: relative;
         }
         .circle {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background-color: #ff6f61;
             position: absolute;
         }
         .circle1 {
+            background-color: rgba(255, 99, 71, 0.7); /* Tomatolar */
             top: 50%;
             left: 40%;
             transform: translate(-50%, -50%);
         }
         .circle2 {
+            background-color: rgba(30, 144, 255, 0.7); /* Dodger Blue */
             top: 50%;
             left: 60%;
             transform: translate(-50%, -50%);
         }
         .circle3 {
+            background-color: rgba(255, 215, 0, 0.7); /* Altın */
             top: 35%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .circle4 {
-            top: 65%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
@@ -47,7 +45,6 @@
 <div class="circle circle1"></div>
 <div class="circle circle2"></div>
 <div class="circle circle3"></div>
-<div class="circle circle4"></div>
 
 </body>
 </html>
