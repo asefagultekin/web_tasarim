@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid Layout</title>
+    <title>Grid Kullanarak yaptığımız</title>
     <style>
-        /* Sayfanın ortasına yerleştirmek için */
+
         body {
             display: flex;
             justify-content: center;
@@ -23,7 +23,6 @@
             text-align: center;
         }
 
-        /* Container Ayarları */
         .grid-container {
             display: grid;
             grid-template-areas:
@@ -51,13 +50,12 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Hover Efekti */
         .grid-container > div:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Renk Ayarları */
+    
         .A { grid-area: A; background-color: #1E3A8A; }
         .B { grid-area: B; background-color: #F97316; }
         .C { grid-area: C; background-color: #10B981; }
@@ -69,7 +67,7 @@
 </head>
 <body>
     <div>
-        <h2>CSS Grid Layout</h2>
+        <h2>Grid Kullanarak yaptığımız</h2>
         <div class="grid-container">
             <div class="A">A</div>
             <div class="B">B</div>
