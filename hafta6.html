@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid Layout Görevi</title>
+    <title>Grid ve Flexbox Layout Görevi</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -15,14 +16,9 @@
         }
 
         .container {
-            display: grid;
-            grid-template-areas:
-                "A A A"
-                "B C D"
-                "E E F"
-                "G G G";
-            grid-gap: 10px;
-            width: 60%;
+            width: 600px;
+            max-width: 90vw;
+            margin-bottom: 30px;
         }
 
         .container > div {
@@ -33,19 +29,80 @@
             color: white;
             font-weight: bold;
             padding: 20px;
+            height: 100px;
+            box-sizing: border-box;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                "A A A"
+                "B C D"
+                "E E F"
+                "G G G";
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
         }
 
-        .A { grid-area: A; background-color: navy; }
-        .B { grid-area: B; background-color: orange; }
-        .C { grid-area: C; background-color: green; }
-        .D { grid-area: D; background-color: red; }
-        .E { grid-area: E; background-color: yellow; color: black; }
-        .F { grid-area: F; background-color: purple; }
-        .G { grid-area: G; background-color: limegreen; }
+        .grid-container .A { grid-area: A; background-color: navy; }
+        .grid-container .B { grid-area: B; background-color: orange; }
+        .grid-container .C { grid-area: C; background-color: green; }
+        .grid-container .D { grid-area: D; background-color: red; }
+        .grid-container .E { grid-area: E; background-color: yellow; color: black; }
+        .grid-container .F { grid-area: F; background-color: purple; }
+        .grid-container .G { grid-area: G; background-color: limegreen; }
+
+        .flexbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flexbox-container .A {
+            background-color: navy;
+            width: 100%;
+        }
+
+        .flexbox-container .B,
+        .flexbox-container .C,
+        .flexbox-container .D {
+            background-color: orange;
+            flex: 1 1 calc(33.33% - 20px);
+        }
+
+        .flexbox-container .C { background-color: green; }
+        .flexbox-container .D { background-color: red; }
+
+        .flexbox-container .E {
+            background-color: yellow;
+            color: black;
+            flex: 2 1 calc(66.66% - 20px);
+        }
+
+        .flexbox-container .F {
+            background-color: purple;
+            flex: 1 1 calc(33.33% - 20px);
+        }
+
+        .flexbox-container .G {
+            background-color: limegreen;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <h2>Grid Layout</h2>
+    <div class="container grid-container">
+        <div class="A">A</div>
+        <div class="B">B</div>
+        <div class="C">C</div>
+        <div class="D">D</div>
+        <div class="E">E</div>
+        <div class="F">F</div>
+        <div class="G">G</div>
+    </div>
+
+    <h2>Flexbox Layout</h2>
+    <div class="container flexbox-container">
         <div class="A">A</div>
         <div class="B">B</div>
         <div class="C">C</div>
@@ -56,4 +113,5 @@
     </div>
 </body>
 </html>
+
 
