@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geliştirilmiş Grid ve Flexbox Layout</title>
+    <title>CSS Grid Layout</title>
     <style>
-        /* Sayfanın ortasına yerleştirmek için genel ayarlar */
+        /* Sayfanın ortasına yerleştirmek için */
         body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,19 +17,27 @@
         }
 
         h2 {
-            margin: 20px 0 10px;
+            margin-bottom: 20px;
             font-size: 24px;
             color: #333;
+            text-align: center;
         }
 
-        /* Genel Container Ayarları */
-        .container {
+        /* Container Ayarları */
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                "A A A"
+                "B C D"
+                "E E F"
+                "G G G";
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
             width: 600px;
             max-width: 90vw;
-            margin-bottom: 40px;
         }
 
-        .container > div {
+        .grid-container > div {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -45,98 +52,37 @@
         }
 
         /* Hover Efekti */
-        .container > div:hover {
+        .grid-container > div:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Grid Layout */
-        .grid-container {
-            display: grid;
-            grid-template-areas:
-                "A A A"
-                "B C D"
-                "E E F"
-                "G G G";
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-        }
-
-        .grid-container .A { grid-area: A; background-color: #1E3A8A; }
-        .grid-container .B { grid-area: B; background-color: #F97316; }
-        .grid-container .C { grid-area: C; background-color: #10B981; }
-        .grid-container .D { grid-area: D; background-color: #EF4444; }
-        .grid-container .E { grid-area: E; background-color: #F59E0B; color: black; }
-        .grid-container .F { grid-area: F; background-color: #8B5CF6; }
-        .grid-container .G { grid-area: G; background-color: #22C55E; }
-
-        /* Flexbox Layout */
-        .flexbox-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .flexbox-container .A {
-            background-color: #1E3A8A;
-            width: 100%;
-        }
-
-        .flexbox-container .B,
-        .flexbox-container .C,
-        .flexbox-container .D {
-            flex: 1 1 calc(33.33% - 20px);
-            height: 100px;
-        }
-
-        .flexbox-container .B { background-color: #F97316; }
-        .flexbox-container .C { background-color: #10B981; }
-        .flexbox-container .D { background-color: #EF4444; }
-
-        .flexbox-container .E {
-            background-color: #F59E0B;
-            color: black;
-            flex: 2 1 calc(66.66% - 20px);
-            height: 100px;
-        }
-
-        .flexbox-container .F {
-            background-color: #8B5CF6;
-            flex: 1 1 calc(33.33% - 20px);
-            height: 100px;
-        }
-
-        .flexbox-container .G {
-            background-color: #22C55E;
-            width: 100%;
-            height: 100px;
-        }
+        /* Renk Ayarları */
+        .A { grid-area: A; background-color: #1E3A8A; }
+        .B { grid-area: B; background-color: #F97316; }
+        .C { grid-area: C; background-color: #10B981; }
+        .D { grid-area: D; background-color: #EF4444; }
+        .E { grid-area: E; background-color: #F59E0B; color: black; }
+        .F { grid-area: F; background-color: #8B5CF6; }
+        .G { grid-area: G; background-color: #22C55E; }
     </style>
 </head>
 <body>
-    <h2>Grid Layout</h2>
-    <div class="container grid-container">
-        <div class="A">A</div>
-        <div class="B">B</div>
-        <div class="C">C</div>
-        <div class="D">D</div>
-        <div class="E">E</div>
-        <div class="F">F</div>
-        <div class="G">G</div>
-    </div>
-
-    <h2>Flexbox Layout</h2>
-    <div class="container flexbox-container">
-        <div class="A">A</div>
-        <div class="B">B</div>
-        <div class="C">C</div>
-        <div class="D">D</div>
-        <div class="E">E</div>
-        <div class="F">F</div>
-        <div class="G">G</div>
+    <div>
+        <h2>CSS Grid Layout</h2>
+        <div class="grid-container">
+            <div class="A">A</div>
+            <div class="B">B</div>
+            <div class="C">C</div>
+            <div class="D">D</div>
+            <div class="E">E</div>
+            <div class="F">F</div>
+            <div class="G">G</div>
+        </div>
     </div>
 </body>
 </html>
+
 
 
 
