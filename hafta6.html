@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout Görevi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                "A A A"
+                "B C D"
+                "E E F"
+                "G G G";
+            grid-gap: 10px;
+            width: 60%;
+        }
+
+        .container > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .A { grid-area: A; background-color: navy; }
+        .B { grid-area: B; background-color: orange; }
+        .C { grid-area: C; background-color: green; }
+        .D { grid-area: D; background-color: red; }
+        .E { grid-area: E; background-color: yellow; color: black; }
+        .F { grid-area: F; background-color: purple; }
+        .G { grid-area: G; background-color: limegreen; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="A">A</div>
+        <div class="B">B</div>
+        <div class="C">C</div>
+        <div class="D">D</div>
+        <div class="E">E</div>
+        <div class="F">F</div>
+        <div class="G">G</div>
+    </div>
+</body>
+</html>
 
