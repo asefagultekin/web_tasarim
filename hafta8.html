@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daireler</title>
+  <title>Perfect Circles on Canvas</title>
   <style>
     body {
       margin: 0;
@@ -20,32 +20,33 @@
 </head>
 <body>
   <canvas id="circleCanvas"></canvas>
-  <script>
+  <script>    // Canvas ayarları
     const canvas = document.getElementById('circleCanvas');
     const ctx = canvas.getContext('2d');
 
-    const canvasWidth = 400;
-    const canvasHeight = 400; 
+    const canvasWidth = 500; // Genişlik (daha geniş yapıldı)
+    const canvasHeight = 500; // Yükseklik (daha geniş yapıldı)
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    const circleRadius = 20; 
-    const padding = 10; 
-    const startX = padding; 
-    const startY = padding; 
+    const circleRadius = 20; // Yarıçap
+    const padding = 20; // Daireler arası boşluk
+    const startX = padding + circleRadius; // İlk dairenin X pozisyonu
+    const startY = padding + circleRadius; // İlk dairenin Y pozisyonu
+
     const colors = [
-      '#00eaff',
-      '#33ffcc',
+      '#00eaff', 
+      '#33ffcc', 
       '#66ff99', 
-      '#99ff66',
-      '#ccff33', 
+      '#99ff66', 
+      '#ccff33',
       '#eeff00', 
     ];
 
-    for (let row = 0; row < 6; row++) { // 6 satır
-      for (let col = 0; col < 6; col++) { // Her satırda 6 sütun
-        const x = startX + col * (circleRadius * 2 + padding); // X konumu
-        const y = startY + row * (circleRadius * 2 + padding); // Y konumu
+    for (let row = 0; row < 6; row++) { 
+      for (let col = 0; col < 6; col++) { 
+        const x = startX + col * (circleRadius * 2 + padding); 
+        const y = startY + row * (circleRadius * 2 + padding); 
 
         ctx.strokeStyle = colors[row];
         ctx.lineWidth = 3;
@@ -58,4 +59,5 @@
   </script>
 </body>
 </html>
+
 
