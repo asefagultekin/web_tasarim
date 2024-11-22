@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfect Circles on Canvas</title>
+  <title>Canvas with Background Layer</title>
   <style>
     body {
       margin: 0;
@@ -11,46 +11,55 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #fff;
+      background-color: #f4f4f9; 
     }
     canvas {
       display: block;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); 
+      border-radius: 15px; 
+      background-color: #ffffff;
     }
   </style>
 </head>
 <body>
   <canvas id="circleCanvas"></canvas>
-  <script>    // Canvas ayarları
+  <script>
+  
     const canvas = document.getElementById('circleCanvas');
     const ctx = canvas.getContext('2d');
 
-    const canvasWidth = 500; // Genişlik (daha geniş yapıldı)
-    const canvasHeight = 500; // Yükseklik (daha geniş yapıldı)
+    
+    const canvasWidth = 420; // Genişlik
+    const canvasHeight = 420; // Yükseklik
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    const circleRadius = 20; // Yarıçap
-    const padding = 20; // Daireler arası boşluk
-    const startX = padding + circleRadius; // İlk dairenin X pozisyonu
-    const startY = padding + circleRadius; // İlk dairenin Y pozisyonu
+   
+    const circleRadius = 20; 
+    const padding = 20; 
+    const startX = padding + circleRadius; 
+    const startY = padding + circleRadius; 
 
     const colors = [
-      '#00eaff', 
+      '#00eaff',
       '#33ffcc', 
       '#66ff99', 
       '#99ff66', 
-      '#ccff33',
+      '#ccff33', 
       '#eeff00', 
     ];
+
 
     for (let row = 0; row < 6; row++) { 
       for (let col = 0; col < 6; col++) { 
         const x = startX + col * (circleRadius * 2 + padding); 
-        const y = startY + row * (circleRadius * 2 + padding); 
+        const y = startY + row * (circleRadius * 2 + padding);
 
+        
         ctx.strokeStyle = colors[row];
         ctx.lineWidth = 3;
 
+    
         ctx.beginPath();
         ctx.arc(x, y, circleRadius, 0, Math.PI * 2);
         ctx.stroke();
@@ -59,5 +68,6 @@
   </script>
 </body>
 </html>
+
 
 
