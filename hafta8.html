@@ -1,55 +1,83 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renkli daireler</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Grid of Circles</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(6, 50px);
+      grid-gap: 10px;
+    }
+
+    .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--start-color), var(--end-color));
+    }
+  </style>
 </head>
 <body>
   <div class="grid-container">
-    <!-- 6x6 daireler oluşturuluyor -->
-    <div class="circle" style="--color:#00eaff;"></div>
-    <div class="circle" style="--color:#00eaff;"></div>
-    <div class="circle" style="--color:#00eaff;"></div>
-    <div class="circle" style="--color:#00eaff;"></div>
-    <div class="circle" style="--color:#00eaff;"></div>
-    <div class="circle" style="--color:#00eaff;"></div>
-    
-    <div class="circle" style="--color:#33ffcc;"></div>
-    <div class="circle" style="--color:#33ffcc;"></div>
-    <div class="circle" style="--color:#33ffcc;"></div>
-    <div class="circle" style="--color:#33ffcc;"></div>
-    <div class="circle" style="--color:#33ffcc;"></div>
-    <div class="circle" style="--color:#33ffcc;"></div>
+    <!-- Her daireye farklı renkler atanıyor -->
+    <!-- İlk satır (Mavi tonları) -->
+    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
+    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
+    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
+    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
+    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
+    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
 
-    <div class="circle" style="--color:#66ff99;"></div>
-    <div class="circle" style="--color:#66ff99;"></div>
-    <div class="circle" style="--color:#66ff99;"></div>
-    <div class="circle" style="--color:#66ff99;"></div>
-    <div class="circle" style="--color:#66ff99;"></div>
-    <div class="circle" style="--color:#66ff99;"></div>
+    <!-- İkinci satır (Mavi-Yeşil tonları) -->
+    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
+    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
+    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
+    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
+    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
+    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
 
-    <div class="circle" style="--color:#99ff66;"></div>
-    <div class="circle" style="--color:#99ff66;"></div>
-    <div class="circle" style="--color:#99ff66;"></div>
-    <div class="circle" style="--color:#99ff66;"></div>
-    <div class="circle" style="--color:#99ff66;"></div>
-    <div class="circle" style="--color:#99ff66;"></div>
+    <!-- Üçüncü satır (Yeşil tonları) -->
+    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
+    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
+    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
+    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
+    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
+    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
 
-    <div class="circle" style="--color:#ccff33;"></div>
-    <div class="circle" style="--color:#ccff33;"></div>
-    <div class="circle" style="--color:#ccff33;"></div>
-    <div class="circle" style="--color:#ccff33;"></div>
-    <div class="circle" style="--color:#ccff33;"></div>
-    <div class="circle" style="--color:#ccff33;"></div>
+    <!-- Dördüncü satır (Açık Yeşil tonları) -->
+    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
+    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
+    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
+    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
+    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
+    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
 
-    <div class="circle" style="--color:#eeff00;"></div>
-    <div class="circle" style="--color:#eeff00;"></div>
-    <div class="circle" style="--color:#eeff00;"></div>
-    <div class="circle" style="--color:#eeff00;"></div>
-    <div class="circle" style="--color:#eeff00;"></div>
-    <div class="circle" style="--color:#eeff00;"></div>
+    <!-- Beşinci satır (Sarı-Yeşil tonları) -->
+    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+
+    <!-- Altıncı satır (Sarı tonları) -->
+    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
+    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
+    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
+    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
+    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
+    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
   </div>
 </body>
 </html>
