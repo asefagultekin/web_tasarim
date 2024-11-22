@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grid of Circles</title>
+  <title>Canvas Grid of Circles</title>
   <style>
     body {
       margin: 0;
@@ -13,66 +13,49 @@
       align-items: center;
       background-color: #fff;
     }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(6, 50px);
-      grid-gap: 10px;
-    }
-
-    .circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--start-color), var(--end-color));
+    canvas {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="grid-container">
-    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
-    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
-    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
-    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
-    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
-    <div class="circle" style="--start-color: #00eaff; --end-color: #0080ff;"></div>
-    
-    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
-    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
-    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
-    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
-    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
-    <div class="circle" style="--start-color: #33ffcc; --end-color: #00b894;"></div>
+  <canvas id="circleCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById('circleCanvas');
+    const ctx = canvas.getContext('2d');
 
-    
-    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
-    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
-    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
-    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
-    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
-    <div class="circle" style="--start-color: #66ff99; --end-color: #32a852;"></div>
+    const canvasWidth = 400;
+    const canvasHeight = 400; 
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
 
+    const circleRadius = 20; 
+    const padding = 10; 
+    const startX = padding; 
+    const startY = padding; 
+    const colors = [
+      '#00eaff',
+      '#33ffcc',
+      '#66ff99', 
+      '#99ff66',
+      '#ccff33', 
+      '#eeff00', 
+    ];
 
-    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
-    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
-    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
-    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
-    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
-    <div class="circle" style="--start-color: #99ff66; --end-color: #6abf34;"></div>
+    for (let row = 0; row < 6; row++) { // 6 satır
+      for (let col = 0; col < 6; col++) { // Her satırda 6 sütun
+        const x = startX + col * (circleRadius * 2 + padding); // X konumu
+        const y = startY + row * (circleRadius * 2 + padding); // Y konumu
 
-    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
-    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
-    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
-    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
-    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
-    <div class="circle" style="--start-color: #ccff33; --end-color: #a0bf20;"></div>
+        ctx.strokeStyle = colors[row];
+        ctx.lineWidth = 3;
 
-    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
-    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
-    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
-    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
-    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
-    <div class="circle" style="--start-color: #eeff00; --end-color: #b9bf00;"></div>
-  </div>
+        ctx.beginPath();
+        ctx.arc(x, y, circleRadius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    }
+  </script>
 </body>
 </html>
+
