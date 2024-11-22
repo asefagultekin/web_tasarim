@@ -1,3 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid of Circles</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grid-container">
+    <!-- 6x6 daireler oluşturuluyor -->
+    <div class="circle" style="--color:#00eaff;"></div>
+    <div class="circle" style="--color:#00eaff;"></div>
+    <div class="circle" style="--color:#00eaff;"></div>
+    <div class="circle" style="--color:#00eaff;"></div>
+    <div class="circle" style="--color:#00eaff;"></div>
+    <div class="circle" style="--color:#00eaff;"></div>
+    
+    <div class="circle" style="--color:#33ffcc;"></div>
+    <div class="circle" style="--color:#33ffcc;"></div>
+    <div class="circle" style="--color:#33ffcc;"></div>
+    <div class="circle" style="--color:#33ffcc;"></div>
+    <div class="circle" style="--color:#33ffcc;"></div>
+    <div class="circle" style="--color:#33ffcc;"></div>
 
-<canvas id=" can1" width="200" height="100" 
-	    style="border:1px solid #000000;"></canvas>
+    <div class="circle" style="--color:#66ff99;"></div>
+    <div class="circle" style="--color:#66ff99;"></div>
+    <div class="circle" style="--color:#66ff99;"></div>
+    <div class="circle" style="--color:#66ff99;"></div>
+    <div class="circle" style="--color:#66ff99;"></div>
+    <div class="circle" style="--color:#66ff99;"></div>
+
+    <div class="circle" style="--color:#99ff66;"></div>
+    <div class="circle" style="--color:#99ff66;"></div>
+    <div class="circle" style="--color:#99ff66;"></div>
+    <div class="circle" style="--color:#99ff66;"></div>
+    <div class="circle" style="--color:#99ff66;"></div>
+    <div class="circle" style="--color:#99ff66;"></div>
+
+    <div class="circle" style="--color:#ccff33;"></div>
+    <div class="circle" style="--color:#ccff33;"></div>
+    <div class="circle" style="--color:#ccff33;"></div>
+    <div class="circle" style="--color:#ccff33;"></div>
+    <div class="circle" style="--color:#ccff33;"></div>
+    <div class="circle" style="--color:#ccff33;"></div>
+
+    <div class="circle" style="--color:#eeff00;"></div>
+    <div class="circle" style="--color:#eeff00;"></div>
+    <div class="circle" style="--color:#eeff00;"></div>
+    <div class="circle" style="--color:#eeff00;"></div>
+    <div class="circle" style="--color:#eeff00;"></div>
+    <div class="circle" style="--color:#eeff00;"></div>
+  </div>
+</body>
+</html>
+/* Sayfa düzeni */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9; /* Arkaplan rengi */
+}
+
+/* Grid konteyner */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 50px); /* 6 sütun */
+  grid-gap: 10px; /* Hücreler arası boşluk */
+}
+
+/* Daire stilleri */
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color);
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
