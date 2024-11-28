@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Kartlar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .card-container {
+            display: grid;
+            gap: 20px;
+            width: 90%;
+        }
+
+        .card {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+        }
+
+        
+        .card-container {
+            grid-template-columns: 1fr;
+        }
+
+       
+        @media (min-width: 576px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        
+        @media (min-width: 768px) {
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        
+        @media (min-width: 992px) {
+            .card-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">Kart 1</div>
+        <div class="card">Kart 2</div>
+        <div class="card">Kart 3</div>
+        <div class="card">Kart 4</div>
+        <div class="card">Kart 5</div>
+        <div class="card">Kart 6</div>
+    </div>
+</body>
+</html>
