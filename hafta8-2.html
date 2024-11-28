@@ -1,1 +1,68 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Değişen Resimler</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            transition: background-color 0.5s;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container" id="imageContainer"></div>
+    <button onclick="toggleImages()">Resimleri Göster/Gizle</button>
+
+    <script>
+        
+        const backgroundColors = ["#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33FF", "#33FFFF", "#FFA533", "#A533FF", "#33FFA5", "#A5FF33"];
+        const imagePaths = [
+            "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg",
+            "image6.jpg", "image7.jpg", "image8.jpg", "image9.jpg", "image10.jpg"
+        ];
+
+        
+        window.onload = function () {
+            
+            const randomBgColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+            document.body.style.backgroundColor = randomBgColor;
+
+           
+            const imageContainer = document.getElementById("imageContainer");
+            for (let i = 0; i < 3; i++) {
+                const randomImage = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+                const imgElement = document.createElement("img");
+                imgElement.src = randomImage;
+                imgElement.alt = "Random Image";
+                imageContainer.appendChild(imgElement);
+            }
+        };
+
+        
+        function toggleImages() {
+            const imageContainer = document.getElementById("imageContainer");
+            imageContainer.style.display = imageContainer.style.display === "none" ? "flex" : "none";
+        }
+    </script>
+</body>
+</html>
