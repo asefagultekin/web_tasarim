@@ -51,9 +51,6 @@
     </style>
 </head>
 <body>
-    <div class="image-container" id="imageContainer"></div>
-    <button onclick="toggleImages()">Resimleri Göster/Gizle</button>
-
     <script>
         
         const backgroundColors = ["#FF5733", "#33FF57", "#3357FF", "#FFFF33", "#FF33FF", "#33FFFF", "#FFA533", "#A533FF", "#33FFA5", "#A5FF33"];
@@ -63,27 +60,45 @@
         ];
 
        
-        window.onload = function () {
-            
+        function setRandomBackgroundColor() {
             const randomBgColor = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
             document.body.style.backgroundColor = randomBgColor;
+        }
 
-           
-            const imageContainer = document.getElementById("imageContainer");
+       
+        function createImageContainer() {
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            imageContainer.id = 'imageContainer';
+            document.body.appendChild(imageContainer);
+
+            
             for (let i = 0; i < 3; i++) {
                 const randomImage = imagePaths[Math.floor(Math.random() * imagePaths.length)];
-                const imgElement = document.createElement("img");
+                const imgElement = document.createElement('img');
                 imgElement.src = randomImage;
-                imgElement.alt = "Random Image";
+                imgElement.alt = 'Random Image';
                 imageContainer.appendChild(imgElement);
             }
-        };
+        }
 
         
-        function toggleImages() {
-            const imageContainer = document.getElementById("imageContainer");
-            imageContainer.style.display = imageContainer.style.display === "none" ? "flex" : "none";
+        function createToggleButton() {
+            const button = document.createElement('button');
+            button.textContent = 'Resimleri Göster/Gizle';
+            button.onclick = function () {
+                const imageContainer = document.getElementById('imageContainer');
+                imageContainer.style.display = imageContainer.style.display === 'none' ? 'flex' : 'none';
+            };
+            document.body.appendChild(button);
         }
+
+        
+        window.onload = function () {
+            setRandomBackgroundColor();
+            createImageContainer();
+            createToggleButton();
+        };
     </script>
 </body>
 </html>
