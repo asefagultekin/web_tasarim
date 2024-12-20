@@ -104,7 +104,7 @@ foreach ($sorular as $index => $soru) {
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+            background: linear-gradient(to top right, #6a11cb, #2575fc); /* Gradient background */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -115,11 +115,11 @@ foreach ($sorular as $index => $soru) {
 
         .container {
             width: 100%;
-            max-width: 850px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             color: #333;
         }
 
@@ -147,7 +147,7 @@ foreach ($sorular as $index => $soru) {
         }
 
         button {
-            background-color: #e74c3c;
+            background-color: #3498db;
             color: #fff;
             padding: 15px 30px;
             font-size: 1.2em;
@@ -160,7 +160,7 @@ foreach ($sorular as $index => $soru) {
         }
 
         button:hover {
-            background-color: #c0392b;
+            background-color: #2980b9;
             transform: scale(1.05);
         }
 
