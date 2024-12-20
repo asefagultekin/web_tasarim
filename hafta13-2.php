@@ -52,7 +52,6 @@ $secenekler = [
     ]
 ];
 
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) {
     foreach ($sorular as $index => $soru) {
         $cevap = $_POST['cevap_' . $index];
@@ -63,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) {
     }
     echo "<div class='success'>Oylarınız başarıyla kaydedildi!</div>";
 }
-
 
 $sonuclar = [];
 foreach ($sorular as $index => $soru) {
@@ -98,85 +96,127 @@ foreach ($sorular as $index => $soru) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anket</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #e8f0fe;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
             color: #333;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        form {
-            background: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
-            color: #1a73e8;
+            text-align: center;
+            font-size: 2.5em;
+            color: #3498db;
+            margin-bottom: 30px;
         }
+
         label {
-            font-weight: bold;
-            margin-top: 10px;
             display: block;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #555;
         }
+
         input[type="radio"] {
             margin-right: 10px;
         }
+
+        .secenekler {
+            margin-bottom: 20px;
+        }
+
         button {
-            background-color: #1a73e8;
-            color: #fff;
+            background-color: #3498db;
+            color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
+            font-size: 1.2em;
             border-radius: 5px;
             cursor: pointer;
+            display: block;
+            margin: 30px auto;
         }
+
         button:hover {
-            background-color: #1666c1;
+            background-color: #2980b9;
         }
+
         .success {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #c3e6cb;
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px;
             border-radius: 5px;
-        }
-        .sonuclar {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+            text-align: center;
         }
+
+        .sonuclar {
+            margin-top: 40px;
+        }
+
         .sonuclar h2 {
-            color: #1a73e8;
+            font-size: 2em;
+            color: #2980b9;
+            margin-bottom: 20px;
+            text-align: center;
         }
+
         .sonuclar p {
-            margin: 5px 0;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Anket</h1>
-    <form method="POST">
-        <?php foreach ($sorular as $index => $soru) : ?>
-            <label><?= htmlspecialchars($soru) ?></label>
-            <?php foreach ($secenekler[$index] as $secenek) : ?>
-                <input type="radio" name="cevap_<?= $index ?>" value="<?= htmlspecialchars($secenek) ?>" required>
-                <?= htmlspecialchars($secenek) ?>
+    <div class="container">
+        <h1>Anket</h1>
+        <form method="POST">
+            <?php foreach ($sorular as $index => $soru) : ?>
+                <label><?= htmlspecialchars($soru) ?></label>
+                <div class="secenekler">
+                    <?php foreach ($secenekler[$index] as $secenek) : ?>
+                        <input type="radio" name="cevap_<?= $index ?>" value="<?= htmlspecialchars($secenek) ?>" required>
+                        <?= htmlspecialchars($secenek) ?>
+                        <br>
+                    <?php endforeach; ?>
+                </div>
             <?php endforeach; ?>
-        <?php endforeach; ?>
-        <button type="submit" name="oyla">Oy Ver</button>
-    </form>
+            <button type="submit" name="oyla">Oy Ver</button>
+        </form>
 
-    <div class="sonuclar">
-        <h2>Sonuçlar</h2>
-        <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
-            <h3><?= htmlspecialchars($soru) ?></h3>
-            <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
-                <p><?= htmlspecialchars($secenek) ?>: %<?= htmlspecialchars($yuzde) ?></p>
+        <?php if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['oyla'])) : ?>
+            <div class="success">Oylarınız başarıyla kaydedildi!</div>
+        <?php endif; ?>
+
+        <div class="sonuclar">
+            <h2>Sonuçlar</h2>
+            <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
+                <h3><?= htmlspecialchars($soru) ?></h3>
+                <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
+                    <p><?= htmlspecialchars($secenek) ?>: %<?= htmlspecialchars($yuzde) ?></p>
+                <?php endforeach; ?>
             <?php endforeach; ?>
-        <?php endforeach; ?>
+        </div>
     </div>
 </body>
 </html>
