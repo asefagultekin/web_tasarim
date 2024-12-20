@@ -11,7 +11,6 @@ if ($conn->connect_error) {
     die("Bağlantı başarısız: " . $conn->connect_error);
 }
 
-
 $sorular = [
     "PHP programlama dilini ne kadar etkili öğrenebildiniz?",
     "Bilgisayar programcılığı alanında bir kariyer yapmak ister misiniz?",
@@ -96,6 +95,7 @@ foreach ($sorular as $index => $soru) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anket</title>
     <style>
+        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
@@ -104,8 +104,8 @@ foreach ($sorular as $index => $soru) {
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -115,58 +115,63 @@ foreach ($sorular as $index => $soru) {
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 850px;
+            background: #fff;
             padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            color: #333;
         }
 
         h1 {
+            font-size: 3rem;
             text-align: center;
-            font-size: 2.5em;
-            color: #3498db;
-            margin-bottom: 30px;
+            color: #e74c3c;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            margin-top: 15px;
-            font-size: 1.1em;
-            color: #555;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #2c3e50;
         }
 
         input[type="radio"] {
-            margin-right: 10px;
+            margin-right: 15px;
+            accent-color: #e74c3c;
         }
 
         .secenekler {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 25px;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 15px 30px;
             font-size: 1.2em;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
             display: block;
             margin: 30px auto;
+            transition: all 0.3s ease;
         }
 
         button:hover {
-            background-color: #2980b9;
+            background-color: #c0392b;
+            transform: scale(1.05);
         }
 
         .success {
             background-color: #2ecc71;
-            color: white;
+            color: #fff;
             padding: 15px;
             border-radius: 5px;
-            margin-top: 20px;
             text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
         }
 
         .sonuclar {
@@ -174,16 +179,30 @@ foreach ($sorular as $index => $soru) {
         }
 
         .sonuclar h2 {
-            font-size: 2em;
-            color: #2980b9;
-            margin-bottom: 20px;
+            font-size: 2.2em;
+            color: #3498db;
             text-align: center;
+            margin-bottom: 25px;
         }
 
         .sonuclar p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            button {
+                padding: 12px 20px;
+                font-size: 1.1em;
+            }
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -213,10 +232,4 @@ foreach ($sorular as $index => $soru) {
             <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
                 <h3><?= htmlspecialchars($soru) ?></h3>
                 <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
-                    <p><?= htmlspecialchars($secenek) ?>: %<?= htmlspecialchars($yuzde) ?></p>
-                <?php endforeach; ?>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</body>
-</html>
+                    <p><?= htmlspecialchars
