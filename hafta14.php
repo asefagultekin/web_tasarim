@@ -174,4 +174,3 @@ foreach ($sorular as $index => $soru) {
         <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
             <h3><?= htmlspecialchars($soru) ?></h3>
             <?php foreach ($
-
