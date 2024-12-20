@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "kisiler";
 
 // Bağlantıyı oluştur
 $conn = new mysqli($servername, $username, $password, $dbname);
