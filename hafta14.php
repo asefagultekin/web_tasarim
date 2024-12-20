@@ -173,4 +173,10 @@ foreach ($sorular as $index => $soru) {
         <h2>Sonuçlar</h2>
         <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
             <h3><?= htmlspecialchars($soru) ?></h3>
-            <?php foreach ($
+            <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
+                <p><?= htmlspecialchars($secenek) ?>: %<?= htmlspecialchars($yuzde) ?></p>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
+</body>
+</html>
