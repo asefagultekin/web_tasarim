@@ -232,4 +232,10 @@ foreach ($sorular as $index => $soru) {
             <?php foreach ($sonuclar as $soru => $yuzdeler) : ?>
                 <h3><?= htmlspecialchars($soru) ?></h3>
                 <?php foreach ($yuzdeler as $secenek => $yuzde) : ?>
-                    <p><?= htmlspecialchars
+                    <p><?= htmlspecialchars($secenek) ?>: %<?= htmlspecialchars($yuzde) ?></p>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</body>
+</html>
