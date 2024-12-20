@@ -59,40 +59,49 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
     <title>Kişi Yönetimi</title>
     <style>
         body {
-            background-color: #2e8b57; /* Yeşil arka plan */
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4CAF50, #2e8b57); /* Gradyan arka plan */
+            font-family: 'Arial', sans-serif;
             color: white;
             text-align: center;
             padding: 50px;
+            margin: 0;
         }
 
         h1 {
             color: #ffffff;
+            font-size: 36px;
         }
 
         form {
-            background-color: #4CAF50; /* Form arka planı */
+            background-color: rgba(0, 0, 0, 0.6); /* Koyu şeffaf arka plan */
             padding: 20px;
             border-radius: 10px;
             display: inline-block;
             margin-bottom: 30px;
+            width: 300px;
         }
 
         input[type="text"], input[type="email"] {
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border-radius: 5px;
-            width: 200px;
+            width: 100%;
             border: none;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #333;
         }
 
         button {
             background-color: #45a049; /* Buton rengi */
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -105,17 +114,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
             margin-left: auto;
             margin-right: auto;
             border-collapse: collapse;
-            background-color: #4CAF50;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
         }
 
         table th, table td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            border: 1px solid #ddd;
+            color: white;
         }
 
         table th {
             background-color: #45a049;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #2e8b57;
         }
 
         .center {
@@ -123,6 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
             margin-left: auto;
             margin-right: auto;
         }
+
     </style>
 </head>
 <body>
@@ -171,5 +191,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
 
 </body>
 </html>
+
 
 
