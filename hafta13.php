@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ekle'])) {
     $stmt->bind_param("sss", $ad, $soyad, $email);
 
     if ($stmt->execute()) {
-        echo "Kışi başarıyla eklendi.";
+        echo "Kişi başarıyla eklendi.";
     } else {
         echo "Hata: " . $conn->error;
     }
@@ -57,8 +57,76 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kişi Yönetimi</title>
+    <style>
+        body {
+            background-color: #2e8b57; /* Yeşil arka plan */
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #ffffff;
+        }
+
+        form {
+            background-color: #4CAF50; /* Form arka planı */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"], input[type="email"] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            width: 200px;
+            border: none;
+        }
+
+        button {
+            background-color: #45a049; /* Buton rengi */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c; /* Hover rengi */
+        }
+
+        table {
+            margin-top: 30px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+            background-color: #4CAF50;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #45a049;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
+
     <h1>Kişi Ekle</h1>
     <form method="POST">
         <label for="ad">Ad:</label>
@@ -74,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
     </form>
 
     <h1>Kişi Ara</h1>
-    <form method="POST">
+    <form method="POST" class="center">
         <label for="arama">Arama:</label>
         <input type="text" name="arama" id="arama" required>
         <br>
@@ -83,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
 
     <?php if (!empty($sonuclar)) : ?>
         <h2>Arama Sonuçları</h2>
-        <table border="1">
+        <table>
             <tr>
                 <th>ID</th>
                 <th>Ad</th>
@@ -103,3 +171,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ara'])) {
 
 </body>
 </html>
+
